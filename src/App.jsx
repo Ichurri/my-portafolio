@@ -1,6 +1,5 @@
-import { AboutMe } from './components/AboutMe';
-import { NavBar } from './components/NavBar';
-import { Skills } from './components/Skills';
+
+import { AboutMe, NavBar, Skills } from './components';
 import './styles/App.css';
 
 export const App = () => {
