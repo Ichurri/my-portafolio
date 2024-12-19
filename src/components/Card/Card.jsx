@@ -1,5 +1,3 @@
-// import '../styles/skills.css';
-
 export const Card = ({ logoSrcFront, logoSrcBack, title, description }) => {
 
     const hasBackImage = logoSrcBack !== null;
@@ -10,7 +8,7 @@ export const Card = ({ logoSrcFront, logoSrcBack, title, description }) => {
                 <div className={ `flip-logo ${ hasBackImage ? 'flip-logo-hover' : '' }` }>
                     <div className="flip-logo-inner">
                         <div className="flip-logo-front">
-                            <img src={ logoSrcFront } alt={`${ title } Logo Front` } className="logo" />
+                            <img src={ logoSrcFront } alt={`${ title } Logo Front`} className="logo" />
                         </div>
                         {
                             hasBackImage && (

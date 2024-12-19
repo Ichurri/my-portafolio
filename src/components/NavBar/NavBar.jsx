@@ -7,11 +7,8 @@ export const NavBar = () => {
     const toggleMenu = () => {
         setMenuOpen(!menuOpen);
         const body = document.querySelector('body');
-        if (menuOpen) {
-            body.classList.remove('no-scroll');
-        } else {
-            body.classList.add('no-scroll');
-        }
+        if (menuOpen) body.classList.remove('no-scroll');
+        else body.classList.add('no-scroll');
     };
 
     const closeMenu = () => {
@@ -24,16 +21,16 @@ export const NavBar = () => {
         <>
             <div>
                 <nav>
-                    <div className="hamburger" onClick={toggleMenu}>
-                        <span className={menuOpen ? 'active' : ''}></span>
-                        <span className={menuOpen ? 'active' : ''}></span>
-                        <span className={menuOpen ? 'active' : ''}></span>
+                    <div className="hamburger" onClick={ toggleMenu }>
+                        <span className={ menuOpen ? 'active' : '' }></span>
+                        <span className={ menuOpen ? 'active' : '' }></span>
+                        <span className={ menuOpen ? 'active' : '' }></span>
                     </div>
-                    <ul className={`nav-content ${menuOpen ? 'active' : ''}`}>
-                        <li><a onClick={() => closeMenu()} href='#home'>Home</a></li>
-                        <li><a onClick={() => closeMenu()} href='#projects'>Projects</a></li>
-                        <li><a onClick={() => closeMenu()} href='#skills'>Skills</a></li>
-                        <li><a onClick={() => closeMenu()} href='#about-me'>About Me</a></li>
+                    <ul className={`nav-content ${ menuOpen ? 'active' : '' }`}>
+                        <li> <a onClick={ () => closeMenu() } href='#home'>Home</a></li>
+                        <li> <a onClick={ () => closeMenu() } href='#projects'>Projects</a></li>
+                        <li> <a onClick={ () => closeMenu() } href='#skills'>Skills</a></li>
+                        <li> <a onClick={ () => closeMenu() } href='#about-me'>About Me</a></li>
                     </ul>
                 </nav>
             </div>
