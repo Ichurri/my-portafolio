@@ -1,13 +1,13 @@
 export const skills = [
     {
         logoSrcFront: '/assets/logos/cpp.png',
-        logoSrcBack: null,  
+        logoSrcBack: '/assets/logos/cpp.png',  
         title: 'C++',
         description: 'Advanced knowledge of C++ for algorithms and data structures, object-oriented programming, and low-level system operations.'
     },
     {
         logoSrcFront: '/assets/logos/python.png',
-        logoSrcBack: null,  
+        logoSrcBack: '/assets/logos/python.png',  
         title: 'Python',
         description: 'Experienced with Python for data analysis, web development, and engineering applications.'
     },
@@ -19,7 +19,7 @@ export const skills = [
     },
     {
         logoSrcFront: '/assets/logos/react.png',
-        logoSrcBack: null,  
+        logoSrcBack: '/assets/logos/react.png',  
         title: 'React JavaScript',
         description: 'Building dynamic single-page applications using React, managing state and component lifecycle efficiently.'
     },
@@ -32,19 +32,19 @@ export const skills = [
     {
         logoSrcFront: '/assets/logos/nodejs.png',
         logoSrcBack: '/assets/logos/expressjs.png', 
-        title: 'Node.js & Express.js',
+        title: 'Node & Express',
         description: 'Developing back-end services with Node.js and Express.js, focusing on API development.'
     },
     {
         logoSrcFront: '/assets/logos/sql.png',
-        logoSrcBack: null, 
+        logoSrcBack: '/assets/logos/sql.png', 
         title: 'SQL',
         description: 'Skilled in designing and querying relational databases using SQL for data management and analysis.'
     },
 
     {
         logoSrcFront: '/assets/logos/mongodb.png',
-        logoSrcBack: null, 
+        logoSrcBack: '/assets/logos/mongodb.png', 
         title: 'MongoDB',
         description: 'Proficient in using MongoDB as a NoSQL database for scalable, high-performance applications.'
     }
