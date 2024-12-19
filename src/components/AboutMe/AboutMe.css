@@ -79,11 +79,29 @@
 }
 
 .details {
-    padding: 1rem;
-    margin-top: 1rem;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
     border: 1px solid var(--primary-color);
     border-radius: 8px;
     background-color: rgba(0, 0, 0, 0.1);
+    line-height: 1.8;
+}
+
+.mailto-link {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.mailto-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color var(--transition-duration);
+}
+
+.mailto-link a:hover {
+    color: var(--text-color);
 }
 
 /* Estilos responsivos para pantallas más pequeñas */
@@ -113,6 +131,17 @@
     #about-me p {
         font-size: 1rem;
     }
+
+    .details {
+        padding: 1rem;
+        margin-top: 1rem;
+        line-height: 1.6;
+    }
+
+    .mailto-link {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -135,5 +164,89 @@
 
     #about-me li {
         font-size: 1rem;
+    }
+
+    .details {
+        padding: 0.8rem;
+        margin-top: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .mailto-link {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
+    }
+}
+/* Estilos responsivos para pantallas más pequeñas */
+@media (max-width: 768px) {
+    #about-me {
+        padding: 2rem 1rem;
+    }
+
+    #about-me .wrapper {
+        padding: 1rem;
+    }
+
+    #about-me .content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    #about-me header h2 {
+        font-size: 2rem;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    #about-me p {
+        font-size: 1rem;
+    }
+
+    .details {
+        padding: 1rem;
+        margin-top: 1rem;
+        line-height: 1.6;
+    }
+
+    .mailto-link {
+        font-size: 1rem;
+        margin-top: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #about-me {
+        padding: 1rem 0.5rem;
+    }
+
+    #about-me header h2 {
+        font-size: 1.8rem;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    #about-me p {
+        font-size: 0.9rem;
+    }
+
+    #about-me li {
+        font-size: 1rem;
+    }
+
+    .details {
+        padding: 0.8rem;
+        margin-top: 0.8rem;
+        line-height: 1.4;
+    }
+
+    .mailto-link {
+        font-size: 0.9rem;
+        margin-top: 0.5rem;
     }
 }
