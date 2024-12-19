@@ -1,6 +1,6 @@
 
+import './App.css';
 import { AboutMe, NavBar, Skills } from './components';
-import './styles/App.css';
 
 export const App = () => {
   return (

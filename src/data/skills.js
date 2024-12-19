@@ -1,4 +1,4 @@
-export const skillsData = [
+export const skills = [
     {
         logoSrcFront: '/assets/logos/cpp.png',
         logoSrcBack: null,  

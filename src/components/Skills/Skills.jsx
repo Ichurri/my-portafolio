@@ -1,6 +1,6 @@
-import '../styles/Skills.css';
-import { Card } from './Card';
-import { skillsData } from '../helpers/skillsData';
+import { skills } from '../../data';
+import { Card } from '../Card';
+import './Skills.css';
 
 export const Skills = () => {
 
@@ -13,7 +13,7 @@ export const Skills = () => {
                     </header>
                     <div className="cards">
                         {
-                            skillsData.map((skill, index) => (
+                            skills.map((skill, index) => (
                                 <Card
                                     key={ index }
                                     logoSrcFront={ skill.logoSrcFront }
