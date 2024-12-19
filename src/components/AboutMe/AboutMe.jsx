@@ -10,7 +10,7 @@ export const AboutMe = () => {
                 </header>
                 <div className="content">
                     <div className="profile-container">
-                        <img src="/assets/images/profile.jpeg" alt="Profile" className="profile-pic" />
+                        <img src="src/assets/images/profile.jpeg" alt="Profile" className="profile-pic" />
                     </div>
                     <div className="text-container">
                         <p>
