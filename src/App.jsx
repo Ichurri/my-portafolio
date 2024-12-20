@@ -6,8 +6,10 @@ export const App = () => {
   return (
     <>
       <NavBar/>
-      <Skills/>
-      <AboutMe/>
+      <main>
+        <Skills/>
+        <AboutMe/>
+      </main>
     </>
   )
 }
