@@ -17,3 +17,25 @@ footer {
 .social-links a:hover {
     transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+    .social-links {
+        gap: 15px;
+    }
+
+    .social-links a img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .social-links {
+        gap: 10px;
+    }
+
+    .social-links a img {
+        width: 30px;
+        height: 30px;
+    }
+}
