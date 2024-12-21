@@ -8,10 +8,10 @@ export const Skills = () => {
         <>
             <section id="skills">
                 <div className="wrapper">
-                    <header>
+                    <header className='animate__animated animate__backInLeft'>
                         <h2>Skills</h2>
                     </header>
-                    <div className="cards">
+                    <div className="cards animate__animated animate__backInRight">
                         {
                             skills.map((skill, index) => (
                                 <Card
