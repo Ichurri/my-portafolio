@@ -11,7 +11,7 @@ export const AboutMe = () => {
                     </header>
                 </div>
                 <div className="profile-container animate__animated animate__fadeInLeft">
-                        <img src='src/assets/images/profile.png' alt="Profile" className="profile-pic" />
+                        <img src='https://github.com/Ichurri/my-portafolio/blob/main/src/assets/images/profile.png?raw=true' alt="Profile" className="profile-pic" />
                 </div>
                 <div className="content">
                     <div className="text-container animate__animated animate__backInRight">
