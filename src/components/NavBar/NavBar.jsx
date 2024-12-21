@@ -34,11 +34,6 @@ export const NavBar = () => {
                     </ul>
                 </nav>
             </div>
-            <div className="social-links animate__animated animate__backInDown">
-                <a href="https://www.instagram.com/iturri_santiago/">Instagram</a>
-                <a href="https://github.com/Ichurri">GitHub</a>
-                <a href="https://www.linkedin.com/in/santiago-iturri-969003320/">LinkedIn</a>
-            </div>
         </>
     );
 };

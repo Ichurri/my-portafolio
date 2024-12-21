@@ -1,15 +1,3 @@
-:root {
-    --primary-color: #006DDD;
-    --secondary-color: #004388;
-    --background-color: #0d0d0d;
-    --text-color: #e4e4e4;
-    --card-background: #1c1c1c;
-    --card-shadow: rgba(0, 0, 0, 0.2);
-    --card-hover-shadow: rgba(0, 0, 0, 0.4);
-    --transition-duration: 0.3s;
-    --border-radius: 8px;
-}
-
 body.no-scroll {
     overflow: hidden;
 }
@@ -115,23 +103,4 @@ a:hover {
     a {
         font-size: 1.3rem;
     }
-}
-
-.social-links {
-    margin-top: 1.5rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
-.social-links a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-size: 1.2rem;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.social-links a:hover {
-    color: var(--secondary-color);
-    transform: scale(1.1);
 }

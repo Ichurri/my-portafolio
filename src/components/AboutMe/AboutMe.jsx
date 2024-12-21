@@ -1,4 +1,3 @@
-import { CustomLink } from '../CustomLink';
 import './AboutMe.css';
 
 export const AboutMe = () => {
@@ -24,9 +23,6 @@ export const AboutMe = () => {
                                 <li>Passionate Programmer</li>
                             </ul>
                         </div>
-                        <p className="mailto-link">
-                            <CustomLink to="mailto:santiagoiturrivargas04@gmail.com">Contact me via Email</CustomLink>
-                        </p>
                     </div>
                 </div>
             </div>

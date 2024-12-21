@@ -1,3 +1,15 @@
+:root {
+    --primary-color: #006DDD;
+    --secondary-color: #004388;
+    --background-color: #0d0d0d;
+    --text-color: #e4e4e4;
+    --card-background: #1c1c1c;
+    --card-shadow: rgba(0, 0, 0, 0.2);
+    --card-hover-shadow: rgba(0, 0, 0, 0.4);
+    --transition-duration: 0.3s;
+    --border-radius: 8px;
+}
+
 body {
     font-family: 'Roboto Mono', monospace;
     background-color: var(--background-color);

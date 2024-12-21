@@ -80,22 +80,6 @@
     margin-bottom: 1rem;
 }
 
-.mailto-link {
-    margin-top: 2rem;
-    text-align: center;
-}
-
-.mailto-link a {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color var(--transition-duration);
-}
-
-.mailto-link a:hover {
-    color: var(--secondary-color);
-}
-
 img {
     width: 100%;
     height: auto;

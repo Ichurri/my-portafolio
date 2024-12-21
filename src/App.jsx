@@ -1,6 +1,6 @@
 
 import './App.css';
-import { AboutMe, NavBar, Skills } from './components';
+import { AboutMe, Footer, NavBar, Skills } from './components';
 
 export const App = () => {
   return (
@@ -10,6 +10,7 @@ export const App = () => {
         <Skills/>
         <AboutMe/>
       </main>
+      <Footer/>
     </>
   )
 }
