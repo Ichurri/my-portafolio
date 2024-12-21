@@ -19,7 +19,7 @@ export const NavBar = () => {
 
     return (
         <>
-            <div>
+            <div className='animate__animated animate__animated animate__heartBeat'>
                 <nav>
                     <div className="hamburger" onClick={ toggleMenu }>
                         <span className={ menuOpen ? 'active' : '' }></span>
