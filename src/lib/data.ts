@@ -65,13 +65,13 @@ export const skills: Skill[] = [
 ];
 
 export const personalInfo = {
-  name: 'Your Name',
+  name: 'Santiago Iturri',
   title: 'System Engineer Student & Software Developer',
-  email: 'your.email@example.com',
-  phone: '+1 (555) 123-4567',
-  location: 'Your City, Country',
-  github: 'https://github.com/yourusername',
-  linkedin: 'https://linkedin.com/in/yourusername',
+  email: 'santiagoiturribsnss@gmail.com',
+  phone: '+591 78184211',
+  location: 'Cochabamba, Bolivia',
+  github: 'https://github.com/Ichurri',
+  linkedin: 'https://www.linkedin.com/in/santiago-iturri-969003320/',
   bio: `I'm a passionate System Engineering student with a strong focus on software development. 
         I enjoy creating modern, efficient web applications and am always eager to learn new technologies. 
         My goal is to build solutions that make a positive impact while continuously growing as a developer.`,
