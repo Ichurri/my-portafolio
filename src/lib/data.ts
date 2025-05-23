@@ -1,4 +1,4 @@
-import { Project, Experience, Skill } from '@/types';
+import { Project, Experience } from '@/types';
 
 export const projects: Project[] = [
   {
@@ -46,21 +46,6 @@ export const experiences: Experience[] = [
     duration: '2022 - 2023',
     description: 'Built custom websites for small businesses and startups. Focused on creating modern, responsive designs with excellent performance.',
     technologies: ['HTML', 'CSS', 'JavaScript', 'WordPress', 'PHP']
-  }
-];
-
-export const skills: Skill[] = [
-  {
-    category: 'Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'JavaScript', 'HTML5', 'CSS3', 'Tailwind CSS']
-  },
-  {
-    category: 'Backend',
-    items: ['Node.js', 'Express.js', 'Python', 'MongoDB', 'PostgreSQL', 'RESTful APIs']
-  },
-  {
-    category: 'Tools & Others',
-    items: ['Git', 'Docker', 'AWS', 'Figma', 'VS Code', 'Linux', 'Agile/Scrum']
   }
 ];
 

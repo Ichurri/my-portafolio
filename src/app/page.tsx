@@ -1,5 +1,6 @@
 import Header from '@/components/sections/Header';
 import Hero from '@/components/sections/Hero';
+import Skills from '@/components/sections/Skills';
 
 export default function Home() {
   return (
@@ -22,12 +23,7 @@ export default function Home() {
         </div>
       </section>
       
-      <section id="skills" className="min-h-screen flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-4">Skills Section</h2>
-          <p className="text-dark-400">Coming soon...</p>
-        </div>
-      </section>
+      <Skills />
       
       <section id="experience" className="min-h-screen flex items-center justify-center bg-dark-200">
         <div className="text-center">

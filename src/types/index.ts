@@ -18,6 +18,11 @@ export interface Experience {
 }
 
 export interface Skill {
+  title: string;
+  logo: string;
+}
+
+export interface SkillCategory {
   category: string;
-  items: string[];
+  skills: Skill[];
 }

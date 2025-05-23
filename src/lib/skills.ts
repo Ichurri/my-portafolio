@@ -1,0 +1,167 @@
+import { Skill, SkillCategory } from '@/types';
+
+export const allSkills: Skill[] = [
+  {
+    "title": "C",
+    "logo": "https://img.icons8.com/color/480/c-programming.png"
+  },
+  {
+    "title": "C++",
+    "logo": "https://img.icons8.com/color/480/c-plus-plus-logo.png"
+  },
+  {
+    "title": "SpringBoot",
+    "logo": "https://img.icons8.com/color/480/spring-logo.png"
+  },
+  {
+    "title": "Python",
+    "logo": "https://img.icons8.com/color/480/python--v1.png"
+  },
+  {
+    "title": "Jupyter Notebook",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Jupyter_logo.svg/1200px-Jupyter_logo.svg.png"
+  },
+  {
+    "title": "Flask",
+    "logo": "https://img.icons8.com/color/480/flask.png"
+  },
+  {
+    "title": "Django",
+    "logo": "https://img.icons8.com/color/480/django.png"
+  },
+  {
+    "title": "HTML5",
+    "logo": "https://img.icons8.com/color/480/html-5--v1.png"
+  },
+  {
+    "title": "CSS3",
+    "logo": "https://img.icons8.com/color/480/css3.png"
+  },
+  {
+    "title": "Tailwind CSS",
+    "logo": "https://img.icons8.com/color/480/tailwindcss.png"
+  },
+  {
+    "title": "Bootstrap",
+    "logo": "https://img.icons8.com/color/480/bootstrap.png"
+  },
+  {
+    "title": "React",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/1200px-React.svg.png"
+  },
+  {
+    "title": "Next.js",
+    "logo": "https://img.icons8.com/color/480/nextjs.png"
+  },
+  {
+    "title": "Angular",
+    "logo": "https://img.icons8.com/color/480/angularjs.png"
+  },
+  {
+    "title": "JavaScript",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/320px-Unofficial_JavaScript_logo_2.svg.png"
+  },
+  {
+    "title": "TypeScript",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Typescript.svg/260px-Typescript.svg.png"
+  },
+  {
+    "title": "Node",
+    "logo": "https://img.icons8.com/fluency/240/node-js.png"
+  },
+  {
+    "title": "Express",
+    "logo": "https://img.icons8.com/ios/500/FFFFFF/express-js.png"
+  },
+  {
+    "title": "SQL",
+    "logo": "https://img.icons8.com/external-soft-fill-juicy-fish/480/external-sql-coding-and-development-soft-fill-soft-fill-juicy-fish.png"
+  },
+  {
+    "title": "PostgreSQL",
+    "logo": "https://img.icons8.com/color/480/postgreesql.png"
+  },
+  {
+    "title": "MySQL",
+    "logo": "https://img.icons8.com/color/480/mysql.png"
+  },
+  {
+    "title": "MongoDB",
+    "logo": "https://img.icons8.com/color/480/mongodb.png"
+  },
+  {
+    "title": "Bash & Terminal",
+    "logo": "https://img.icons8.com/color/480/bash.png"
+  },
+  {
+    "title": "Git",
+    "logo": "https://img.icons8.com/color/480/git.png"
+  },
+  {
+    "title": "GitHub",
+    "logo": "https://img.icons8.com/m_sharp/200/FFFFFF/github.png"
+  },
+  {
+    "title": "Amazon Web Services",
+    "logo": "https://logos-world.net/wp-content/uploads/2021/08/Amazon-Web-Services-AWS-Logo.png"
+  },
+  {
+    "title": "Microsoft Azure",
+    "logo": "https://img.icons8.com/fluency/240/azure-1.png"
+  },
+  {
+    "title": "Docker",
+    "logo": "https://img.icons8.com/color/480/docker.png"
+  },
+  {
+    "title": "Postman",
+    "logo": "https://nocodestartup.io/wp-content/uploads/2024/01/postman-nocode.webp"
+  },
+  {
+    "title": "Linux",
+    "logo": "https://img.icons8.com/color/480/linux.png"
+  },
+  {
+    "title": "Scrum",
+    "logo": ""
+  }
+];
+
+export const skillCategories: SkillCategory[] = [
+  {
+    category: "Programming Languages",
+    skills: allSkills.filter(skill => 
+      ['C', 'C++', 'Python', 'JavaScript', 'TypeScript'].includes(skill.title)
+    )
+  },
+  {
+    category: "Frontend Development",
+    skills: allSkills.filter(skill => 
+      ['HTML5', 'CSS3', 'React', 'Next.js', 'Angular', 'Tailwind CSS', 'Bootstrap'].includes(skill.title)
+    )
+  },
+  {
+    category: "Backend Development",
+    skills: allSkills.filter(skill => 
+      ['Node', 'Express', 'SpringBoot', 'Flask', 'Django'].includes(skill.title)
+    )
+  },
+  {
+    category: "Databases",
+    skills: allSkills.filter(skill => 
+      ['SQL', 'PostgreSQL', 'MySQL', 'MongoDB'].includes(skill.title)
+    )
+  },
+  {
+    category: "Cloud & DevOps",
+    skills: allSkills.filter(skill => 
+      ['Amazon Web Services', 'Microsoft Azure', 'Docker', 'Linux'].includes(skill.title)
+    )
+  },
+  {
+    category: "Tools & Others",
+    skills: allSkills.filter(skill => 
+      ['Git', 'GitHub', 'Bash & Terminal', 'Postman', 'Jupyter Notebook', 'Scrum'].includes(skill.title)
+    )
+  }
+];
