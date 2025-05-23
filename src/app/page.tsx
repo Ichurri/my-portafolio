@@ -25,14 +25,7 @@ export default function Home() {
       
       <Skills />
       
-      <section id="experience" className="min-h-screen flex items-center justify-center bg-dark-200">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold mb-4">Experience Section</h2>
-          <p className="text-dark-400">Coming soon...</p>
-        </div>
-      </section>
-      
-      <section id="contact" className="min-h-screen flex items-center justify-center">
+      <section id="contact" className="min-h-screen flex items-center justify-center bg-dark-200">
         <div className="text-center">
           <h2 className="text-4xl font-bold mb-4">Contact Section</h2>
           <p className="text-dark-400">Coming soon...</p>
