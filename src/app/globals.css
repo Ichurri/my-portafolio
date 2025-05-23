@@ -24,6 +24,14 @@
     --input: 0 0% 23.5%; /* #3c3c3c */
     --ring: 0 0% 46.7%; /* #777777 */
     --radius: 0.5rem;
+    
+    /* Custom color variables for RGB usage */
+    --dark-100-rgb: 10, 10, 10;
+    --dark-200-rgb: 25, 25, 25;
+    --dark-300-rgb: 45, 45, 45;
+    --dark-400-rgb: 85, 85, 85;
+    --dark-500-rgb: 120, 120, 120;
+    --dark-600-rgb: 150, 150, 150;
   }
 }
  

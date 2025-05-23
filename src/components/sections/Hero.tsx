@@ -106,7 +106,7 @@ const Hero = () => {
             <Button
               variant="outline"
               size="lg"
-              className="border-dark-400 text-dark-400 hover:bg-dark-400 hover:text-dark-100 px-8 py-3 text-lg"
+              className="border-dark-400 text-dark-400 hover:bg-dark-500 hover:text-dark-100 px-8 py-3 text-lg"
               onClick={() => {
                 // This will be updated when we add the actual resume
                 alert('Resume download will be implemented');

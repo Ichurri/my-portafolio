@@ -53,6 +53,13 @@ const nextConfig: NextConfig = {
         hostname: 'raw.githubusercontent.com',
         port: '',
         pathname: '/**',
+      },
+      // Amazon S3 bucket para imágenes de perfil y proyectos
+      {
+        protocol: 'https',
+        hostname: 'personal-website-s3-bucket.s3.us-east-2.amazonaws.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },

@@ -60,4 +60,7 @@ export const personalInfo = {
   bio: `I'm a passionate System Engineering student with a strong focus on software development. 
         I enjoy creating modern, efficient web applications and am always eager to learn new technologies. 
         My goal is to build solutions that make a positive impact while continuously growing as a developer.`,
+  bioAbout: `I'm an enthusiastic System Engineering student with a keen interest in software development. 
+             I love building sleek and effective web applications and am constantly looking to expand my knowledge of new technologies. 
+             My aim is to develop impactful solutions while evolving both personally and professionally as a developer.`
 };
