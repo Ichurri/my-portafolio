@@ -54,8 +54,8 @@ export default {
           100: '#000000', // color1
           200: '#1e1e1e', // color2
           300: '#3c3c3c', // color3
-          400: '#595959', // color4
-          500: '#777777', // color5
+          400: '#b3b3b3', // color4
+          500: '#FFFFFF', // color 5
         }
       },
 	keyframes: {

@@ -123,7 +123,7 @@ export const allSkills: Skill[] = [
   },
   {
     "title": "Scrum",
-    "logo": ""
+    "logo": "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-scrum-ux-and-ui-icons-flaticons-lineal-color-flat-icons.png"
   }
 ];
 
