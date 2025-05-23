@@ -4,6 +4,8 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Download, Github, Linkedin, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { personalInfo } from '@/lib/data';
+import { useState, useEffect } from 'react';
+import ClientOnly from '@/components/ClientOnly';
 
 const Hero = () => {
   const scrollToSection = (sectionId: string) => {
@@ -12,34 +14,52 @@ const Hero = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  
+  // State to store particle positions
+  const [particles, setParticles] = useState<{ left: string; top: string; duration: number; delay: number }[]>([]);
+  
+  // Generate particles only on client-side to avoid hydration mismatch
+  useEffect(() => {
+    // Generate random positions for particles
+    const newParticles = Array.from({ length: 50 }, () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      duration: 3 + Math.random() * 2,
+      delay: Math.random() * 2
+    }));
+    
+    setParticles(newParticles);
+  }, []); // Empty dependency array means this runs once on mount
 
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background gradient effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-dark-100 via-dark-200 to-dark-300" />
       
-      {/* Animated background particles */}
-      <div className="absolute inset-0">
-        {[...Array(50)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-dark-400 rounded-full"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-            animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 1, 0.3],
-            }}
-            transition={{
-              duration: 3 + Math.random() * 2,
-              repeat: Infinity,
-              delay: Math.random() * 2,
-            }}
-          />
-        ))}
-      </div>
+      {/* Animated background particles - only rendered client-side */}
+      <ClientOnly>
+        <div className="absolute inset-0">
+          {particles.map((particle, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-dark-400 rounded-full"
+              style={{
+                left: particle.left,
+                top: particle.top,
+              }}
+              animate={{
+                y: [0, -30, 0],
+                opacity: [0.3, 1, 0.3],
+              }}
+              transition={{
+                duration: particle.duration,
+                repeat: Infinity,
+                delay: particle.delay,
+              }}
+            />
+          ))}
+        </div>
+      </ClientOnly>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-4xl mx-auto">
