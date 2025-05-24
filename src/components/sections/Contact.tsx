@@ -64,40 +64,40 @@ const Contact = () => {
   const TextArea = ({ ...props }: React.TextareaHTMLAttributes<HTMLTextAreaElement>) => {
     return (
       <textarea
-        className="flex min-h-[80px] w-full rounded-md border border-dark-400/30 bg-dark-300/50 px-3 py-2 text-sm ring-offset-dark-100 placeholder:text-dark-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dark-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+        className="flex min-h-[80px] w-full rounded-md border border-dark-400/30 bg-dark-300/50 px-3 py-2 text-xs sm:text-sm ring-offset-dark-100 placeholder:text-dark-400/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-dark-500 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
         {...props}
       />
     );
   };
 
   return (
-    <section id="contact" className="min-h-screen flex items-center justify-center py-20 bg-dark-200">
+    <section id="contact" className="min-h-screen flex items-center justify-center py-12 sm:py-16 md:py-20 bg-dark-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 sm:mb-16"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold text-dark-500 mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-dark-500 mb-3 sm:mb-4">
             Contact me
           </h2>
-          <p className="text-dark-400 text-lg max-w-2xl mx-auto">
+          <p className="text-dark-400 text-base sm:text-lg max-w-2xl mx-auto px-2">
             Do you have any questions or suggestions? Feel free to send me a message.
           </p>
         </motion.div>
 
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-2xl mx-auto w-full">
           {/* Formulario */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-dark-300 rounded-lg p-8 border border-dark-400/20"
+            className="bg-dark-300 rounded-lg p-4 sm:p-6 md:p-8 border border-dark-400/20"
           >
-            <h3 className="text-2xl font-bold text-dark-500 mb-6">Sent me a message</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-dark-500 mb-4 sm:mb-6">Sent me a message</h3>
             
             <Form {...form}>
               <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -158,11 +158,11 @@ const Contact = () => {
 
                 <Button 
                   type="submit" 
-                  className="w-full bg-dark-500 hover:bg-dark-400 text-dark-100"
+                  className="w-full bg-dark-500 hover:bg-dark-400 text-dark-100 text-sm sm:text-base py-2 sm:py-3 h-auto"
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <Send className="ml-2 w-4 h-4" />
+                  <Send className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
                 </Button>
               </form>
             </Form>

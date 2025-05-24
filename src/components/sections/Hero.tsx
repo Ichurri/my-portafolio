@@ -79,7 +79,7 @@ const Hero = () => {
             </motion.p>
             
             <motion.h1
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-dark-500 mb-6"
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold text-dark-500 mb-4 sm:mb-6 px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
@@ -88,7 +88,7 @@ const Hero = () => {
             </motion.h1>
             
             <motion.h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-dark-400 mb-8"
+              className="text-xl sm:text-3xl lg:text-4xl font-semibold text-dark-400 mb-6 sm:mb-8 px-2 sm:px-0"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
@@ -99,7 +99,7 @@ const Hero = () => {
 
           {/* Bio */}
           <motion.p
-            className="text-dark-400 text-lg leading-relaxed mb-12 max-w-2xl mx-auto"
+            className="text-dark-400 text-base sm:text-lg leading-relaxed mb-8 sm:mb-12 max-w-2xl mx-auto px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
@@ -109,30 +109,30 @@ const Hero = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+            className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 w-full px-4 sm:px-0"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.8 }}
           >
             <Button
               size="lg"
-              className="bg-dark-500 hover:bg-dark-400 text-dark-100 px-8 py-3 text-lg"
+              className="bg-dark-500 hover:bg-dark-400 text-dark-100 px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg w-full sm:w-auto"
               onClick={() => scrollToSection('projects')}
             >
               View My Work
-              <ArrowRight className="ml-2 w-5 h-5" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5" />
             </Button>
             
             <Button
               variant="outline"
               size="lg"
-              className="border-dark-400 text-dark-400 hover:bg-dark-500 hover:text-dark-100 px-8 py-3 text-lg"
+              className="border-dark-400 text-dark-400 hover:bg-dark-500 hover:text-dark-100 px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg w-full sm:w-auto"
               onClick={() => {
                 // This will be updated when we add the actual resume
                 alert('Resume download will be implemented');
               }}
             >
-              <Download className="mr-2 w-5 h-5" />
+              <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
               Download Resume
             </Button>
           </motion.div>
