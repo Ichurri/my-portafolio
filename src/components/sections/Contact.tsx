@@ -4,13 +4,11 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Mail, Send, Github, Linkedin } from 'lucide-react';
+import { Send } from 'lucide-react';
 import { contactFormSchema, type ContactFormValues } from '@/lib/schema';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
 import { useToast } from '@/hooks/use-toast';
-import { personalInfo } from '@/lib/data';
 import { Input } from '../ui/input';
 
 const Contact = () => {
@@ -90,82 +88,11 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          {/* Información de contacto */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="flex flex-col justify-center"
-          >
-            <div className="bg-dark-300 rounded-lg p-8 border border-dark-400/20">
-              <h3 className="text-2xl font-bold text-dark-500 mb-6">Contact Information</h3>
-              
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="bg-dark-400/10 p-3 rounded-full">
-                    <Mail className="w-6 h-6 text-dark-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium text-dark-500">Email</h4>
-                    <a 
-                      href={`mailto:${personalInfo.email}`}
-                      className="text-dark-400 hover:text-dark-500 transition-colors"
-                    >
-                      {personalInfo.email}
-                    </a>
-                  </div>
-                </div>
-                
-                <div className="flex items-start gap-4">
-                  <div className="bg-dark-400/10 p-3 rounded-full">
-                    <Linkedin className="w-6 h-6 text-dark-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium text-dark-500">LinkedIn</h4>
-                    <a 
-                      href={personalInfo.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-dark-400 hover:text-dark-500 transition-colors"
-                    >
-                      Perfil de LinkedIn
-                    </a>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="bg-dark-400/10 p-3 rounded-full">
-                    <Github className="w-6 h-6 text-dark-500" />
-                  </div>
-                  <div>
-                    <h4 className="text-lg font-medium text-dark-500">GitHub</h4>
-                    <a 
-                      href={personalInfo.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-dark-400 hover:text-dark-500 transition-colors"
-                    >
-                      Perfil de GitHub
-                    </a>
-                  </div>
-                </div>
-              </div>
-
-              <Separator className="my-8 bg-dark-400/20" />
-
-              <div>
-                <h4 className="text-lg font-medium text-dark-500 mb-4">Ubicación</h4>
-                <p className="text-dark-400">{personalInfo.location}</p>
-              </div>
-            </div>
-          </motion.div>
-
+        <div className="max-w-2xl mx-auto">
           {/* Formulario */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className="bg-dark-300 rounded-lg p-8 border border-dark-400/20"
