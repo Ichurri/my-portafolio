@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { skillCategories } from '@/lib/skills';
-import { SkillCategory } from '@/types';
 
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(0);
