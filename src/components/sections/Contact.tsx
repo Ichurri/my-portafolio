@@ -39,7 +39,7 @@ const Contact = () => {
         throw new Error('There was a problem sending the message');
       }
 
-      const result = await response.json();
+      // const result = await response.json();
       
       toast({
         title: 'Message sent!',

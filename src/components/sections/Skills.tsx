@@ -18,16 +18,16 @@ const Skills = () => {
     }
   };
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.5
-      }
-    }
-  };
+  // const itemVariants = {
+  //   hidden: { y: 20, opacity: 0 },
+  //   visible: {
+  //     y: 0,
+  //     opacity: 1,
+  //     transition: {
+  //       duration: 0.5
+  //     }
+  //   }
+  // };
 
   const skillCardVariants = {
     hidden: { scale: 0, opacity: 0 },
@@ -97,7 +97,7 @@ const Skills = () => {
           animate="visible"
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-6xl mx-auto px-2 sm:px-0"
         >
-          {skillCategories[activeCategory].skills.map((skill, index) => (
+          {skillCategories[activeCategory].skills.map((skill) => (
             <motion.div
               key={skill.title}
               variants={skillCardVariants}

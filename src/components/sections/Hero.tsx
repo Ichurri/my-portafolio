@@ -8,6 +8,8 @@ import { useState, useEffect } from 'react';
 import ClientOnly from '@/components/ClientOnly';
 
 const Hero = () => {
+
+  const aux = "Hello, I'm";
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -75,7 +77,7 @@ const Hero = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.8 }}
             >
-              Hello, I'm
+              { aux }
             </motion.p>
             
             <motion.h1
