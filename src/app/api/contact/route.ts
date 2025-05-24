@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     const mailOptions = {
       from: process.env.MY_EMAIL,
       to: process.env.MY_EMAIL, // Envía a tu propio correo
-      subject: `Mensaje de contacto de ${name}`,
+      subject: `Contact message from ${name}`,
       text: `
         Nombre: ${name}
         Email: ${email}
@@ -32,10 +32,10 @@ export async function POST(req: Request) {
         ${message}
       `,
       html: `
-        <h3>Nuevo mensaje de contacto</h3>
-        <p><strong>Nombre:</strong> ${name}</p>
+        <h3>New contact message</h3>
+        <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Mensaje:</strong></p>
+        <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
       `,
     };
@@ -44,21 +44,21 @@ export async function POST(req: Request) {
     await transporter.sendMail(mailOptions);
     
     return NextResponse.json(
-      { message: "Mensaje enviado correctamente" },
+      { message: "Message sent successfully" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("Error al enviar el mensaje:", error);
+    console.error("Error sending message:", error);
     
     if (error instanceof Error) {
       return NextResponse.json(
-        { message: `Error al enviar el mensaje: ${error.message}` },
+        { message: `Error sending message: ${error.message}` },
         { status: 500 }
       );
     }
     
     return NextResponse.json(
-      { message: "Error al enviar el mensaje" },
+      { message: "Error sending message" },
       { status: 500 }
     );
   }
