@@ -152,7 +152,7 @@ const About = () => {
                 </div>
               </div>
               
-              <div className="mt-8">
+              {/* <div className="mt-8">
                 <Separator className="mb-6 bg-dark-400/20" />
                 <div className="flex flex-wrap gap-4 justify-start">
                   <a 
@@ -178,7 +178,7 @@ const About = () => {
                     LinkedIn Profile
                   </a>
                 </div>
-              </div>
+              </div> */}
             </Card>
           </motion.div>
         </div>
