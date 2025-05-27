@@ -81,7 +81,7 @@ const Skills = () => {
         {/* Category Tabs */}
         <div className="sticky top-16 bg-dark-100 py-2 z-20">
           <motion.div
-            className="flex flex-wrap justify-center mb-8 sm:mb-10 gap-2 px-1"
+            className="flex flex-wrap justify-center mb-4 sm:mb-6 gap-2 px-1"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -109,6 +109,20 @@ const Skills = () => {
                 )}
               </motion.button>
             ))}
+          </motion.div>
+          
+          {/* Category Description */}
+          <motion.div
+            key={`description-${activeCategory}`}
+            initial={{ opacity: 0, y: -5 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="text-center mb-8 sm:mb-10 px-4"
+          >
+            <p className="text-sm text-dark-400 italic max-w-3xl mx-auto">
+              {skillCategories[activeCategory].description}
+            </p>
           </motion.div>
         </div>
 
@@ -148,13 +162,34 @@ const Skills = () => {
                     />
                   </div>
                   <motion.h3 
-                    className="text-dark-500 font-medium text-xs sm:text-sm md:text-base truncate px-1"
+                    className="text-dark-500 font-medium text-xs sm:text-sm md:text-base truncate px-1 mb-1.5"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: index * 0.05 + 0.2 }}
                   >
                     {skill.title}
                   </motion.h3>
+                  
+                  {/* Nivel de competencia */}
+                  {skill.level && (
+                    <motion.div 
+                      className="flex justify-center gap-0.5 mt-1"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: index * 0.05 + 0.3 }}
+                    >
+                      {[1, 2, 3, 4, 5].map((level) => (
+                        <div 
+                          key={`${skill.title}-level-${level}`}
+                          className={`h-1 w-2 sm:h-1.5 sm:w-3 rounded-full ${
+                            level <= (skill.level || 0) 
+                              ? 'bg-dark-500' 
+                              : 'bg-dark-400/30'
+                          }`}
+                        />
+                      ))}
+                    </motion.div>
+                  )}
                 </motion.div>
               ))}
             </motion.div>

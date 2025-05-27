@@ -20,9 +20,11 @@ export interface Experience {
 export interface Skill {
   title: string;
   logo: string;
+  level?: number; // 1-5, donde 5 es el nivel más alto de competencia
 }
 
 export interface SkillCategory {
   category: string;
+  description?: string;
   skills: Skill[];
 }
