@@ -43,7 +43,36 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-tap-highlight-color: transparent;
+    scroll-behavior: smooth;
   }
+  
+  /* Secciones con transición suave */
+  section {
+    scroll-margin-top: 64px; /* Ajustado a la altura exacta del header (h-16 = 64px) */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    min-height: calc(100vh - 64px); /* Asegurar que cada sección ocupe al menos la altura de la pantalla menos el header */
+    position: relative; /* Para posicionamiento adecuado */
+    padding-top: 1px; /* Prevenir margin collapse */
+    margin-bottom: 0; /* Evitar espacio extra entre secciones */
+  }
+  
+  /* Sección activa (será aplicada con JS) */
+  section.section-entering {
+    animation: sectionEnter 1s ease-out forwards;
+    z-index: 5; /* Asegurar que la sección activa esté por encima durante la transición */
+  }
+  
+  @keyframes sectionEnter {
+    0% {
+      opacity: 0.7;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
   /* Responsive text size adjustments */
   html {
     font-size: 14px;

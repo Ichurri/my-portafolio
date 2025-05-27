@@ -2,28 +2,65 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { scrollToSection } from '@/lib/utils';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+
+  const menuItems = [
+    { href: 'about', label: 'About' },
+    { href: 'projects', label: 'Projects' },
+    { href: 'skills', label: 'Skills' },
+    { href: 'contact', label: 'Contact' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Verificar qué sección está visible
+      const sections = menuItems.map(item => item.href);
+      sections.push('home'); // Añadir la sección home aunque no esté en el menú
+      let currentSection = '';
+      
+      // Obtener la altura exacta del header para el cálculo
+      const header = document.querySelector('header');
+      const headerHeight = header ? header.offsetHeight : 64; // 64px es el equivalente a h-16
+      
+      // Determinar qué sección está más visible en la pantalla actualmente
+      const viewportHeight = window.innerHeight;
+      let maxVisibleArea = 0;
+
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (!element) return;
+
+        const rect = element.getBoundingClientRect();
+        
+        // Calcular cuánto de la sección es visible en el viewport
+        const visibleTop = Math.max(headerHeight, rect.top);
+        const visibleBottom = Math.min(viewportHeight, rect.bottom);
+        const visibleHeight = Math.max(0, visibleBottom - visibleTop);
+        const visiblePercent = visibleHeight / rect.height;
+        
+        // Si esta sección tiene más área visible que la anterior, la establecemos como activa
+        if (visiblePercent > maxVisibleArea) {
+          maxVisibleArea = visiblePercent;
+          currentSection = section;
+        }
+      });
+
+      setActiveSection(currentSection);
     };
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const menuItems = [
-    { href: '#about', label: 'About' },
-    { href: '#projects', label: 'Projects' },
-    { href: '#skills', label: 'Skills' },
-    { href: '#contact', label: 'Contact' },
-  ];
+  }, [menuItems]);
 
   return (
     <motion.header
@@ -52,15 +89,36 @@ const Header = () => {
           {/* Desktop Menu */}
           <div className="hidden md:flex space-x-8">
             {menuItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <motion.span
-                  className="text-dark-400 hover:text-dark-500 transition-colors duration-200 text-sm font-medium"
+              <motion.div 
+                key={item.href}
+                className="relative"
+              >
+                <motion.a
+                  href={`#${item.href}`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    scrollToSection(item.href, 800);
+                  }}
+                  className={`text-sm font-medium cursor-pointer ${
+                    activeSection === item.href 
+                      ? 'text-dark-500' 
+                      : 'text-dark-400 hover:text-dark-500'
+                  } transition-colors duration-200`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
                   {item.label}
-                </motion.span>
-              </Link>
+                </motion.a>
+                {activeSection === item.href && (
+                  <motion.div
+                    layoutId="activeSection"
+                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-dark-500"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                )}
+              </motion.div>
             ))}
           </div>
 
@@ -76,28 +134,50 @@ const Header = () => {
         </div>
 
         {/* Mobile Menu */}
-        {isMenuOpen && (
-          <motion.div
-            className="md:hidden"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <div className="px-2 pt-2 pb-3 space-y-1 bg-dark-200 rounded-lg mt-2">
-              {menuItems.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <div
-                    className="block px-3 py-2 text-dark-400 hover:text-dark-500 transition-colors duration-200"
-                    onClick={() => setIsMenuOpen(false)}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              className="md:hidden"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+            >
+              <div className="px-2 pt-2 pb-3 space-y-1 bg-dark-200 rounded-lg mt-2">
+                {menuItems.map((item) => (
+                  <motion.a
+                    key={item.href}
+                    href={`#${item.href}`}
+                    className={`block px-3 py-2 transition-colors duration-200 ${
+                      activeSection === item.href 
+                        ? 'text-dark-500 bg-dark-300/30' 
+                        : 'text-dark-400 hover:text-dark-500'
+                    } relative overflow-hidden`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      scrollToSection(item.href, 800);
+                      setIsMenuOpen(false);
+                    }}
+                    whileHover={{ 
+                      backgroundColor: 'rgba(85, 85, 85, 0.1)',
+                    }}
                   >
                     {item.label}
-                  </div>
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-        )}
+                    {activeSection === item.href && (
+                      <motion.div
+                        className="absolute left-0 top-0 bottom-0 w-1 bg-dark-500"
+                        layoutId="activeMobileSection"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.3 }}
+                      />
+                    )}
+                  </motion.a>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
     </motion.header>
   );
