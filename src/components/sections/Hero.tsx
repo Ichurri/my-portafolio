@@ -169,7 +169,7 @@ const Hero = () => {
             </motion.a>
             
             <motion.a
-              href={`mailto:${personalInfo.email}`}
+              href="#contact"
               className="text-dark-400 hover:text-dark-500 transition-colors duration-200"
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.9 }}
