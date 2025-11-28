@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
@@ -12,12 +12,12 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
 
-  const menuItems = [
+  const menuItems = useMemo(() => [
     { href: 'about', label: 'About' },
     { href: 'projects', label: 'Projects' },
     { href: 'skills', label: 'Skills' },
     { href: 'contact', label: 'Contact' },
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {

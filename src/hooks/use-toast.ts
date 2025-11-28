@@ -125,6 +125,9 @@ const listeners: Array<(state: State) => void> = []
 let memoryState: State = { toasts: [] }
 
 function dispatch(action: Action) {
+  // Solo ejecutar en el cliente
+  if (typeof window === 'undefined') return
+  
   memoryState = reducer(memoryState, action)
   listeners.forEach((listener) => {
     listener(memoryState)
@@ -134,6 +137,15 @@ function dispatch(action: Action) {
 type Toast = Omit<ToasterToast, "id">
 
 function toast({ ...props }: Toast) {
+  // Solo ejecutar en el cliente
+  if (typeof window === 'undefined') {
+    return {
+      id: '',
+      dismiss: () => {},
+      update: () => {},
+    }
+  }
+  
   const id = genId()
 
   const update = (props: ToasterToast) =>
@@ -166,6 +178,9 @@ function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
+    // Solo ejecutar en el cliente
+    if (typeof window === 'undefined') return
+    
     listeners.push(setState)
     return () => {
       const index = listeners.indexOf(setState)

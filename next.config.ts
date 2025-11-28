@@ -63,19 +63,6 @@ const nextConfig: NextConfig = {
       }
     ],
   },
-  // Configuración adicional para desarrollo
-  experimental: {
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
-  },
 };
 
 export default nextConfig;
-
-module.exports = nextConfig
