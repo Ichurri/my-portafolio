@@ -130,8 +130,7 @@ const Hero = () => {
               size="lg"
               className="border-dark-400 text-dark-400 hover:bg-dark-500 hover:text-dark-100 px-4 sm:px-8 py-2 sm:py-3 text-base sm:text-lg w-full sm:w-auto"
               onClick={() => {
-                // This will be updated when we add the actual resume
-                alert('Resume download will be implemented');
+                window.location.href = '/api/resume';
               }}
             >
               <Download className="mr-2 w-4 h-4 sm:w-5 sm:h-5" />
