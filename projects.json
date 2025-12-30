@@ -1,0 +1,73 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "name": "Barflow",
+            "description": "A full-stack bar and restaurant management system that streamlines operations from QR-based customer ordering to payment processing. It provides real-time order tracking, inventory and table management, and role-based tools for admins, bar staff, and waiters.",
+            "urlPhoto": "https://personal-website-s3-bucket.s3.us-east-2.amazonaws.com/barflow_index.jpeg",
+            "gitHubUrl": "https://github.com/Ichurri/BarFlow",
+            "technologies": [
+                "Next.js",
+                "React",
+                "TypeScript",
+                "Tailwind CSS",
+                "Heroicons",
+                "TanStack Query",
+                "Axios",
+                "NestJS",
+                "Nodels",
+                "TypeORM",
+                "PostgreSQL",
+                "JWT",
+                "Passport",
+                "Swagger/OpenAPI",
+                "Azure Blob Storage",
+                "Docker",
+                "npm",
+                "Git",
+                "ESLint",
+                "Prettier"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "PeluditosYa",
+            "description": "Web platform that connects Bolivian animal shelters with responsible adopters and donors. Provides registration for adopters and shelters, pet profile management with medical history, adoption request workflows, QR-based donations, responsive UI, and email notifications to support transparent, responsible pet adoption.",
+            "urlPhoto": "https://personal-website-s3-bucket.s3.us-east-2.amazonaws.com/peluditos_ya_index.jpeg",
+            "gitHubUrl": "https://github.com/Ichurri/peluditos-ya",
+            "technologies": [
+                "Angular",
+                "TypeScript",
+                "Angular Reactive Forms",
+                "CSS3",
+                "Spring Boot",
+                "Spring Data JPA",
+                "Spring Web",
+                "PostgreSQL",
+                "Postman",
+                "Maven",
+                "Angular CLI",
+                "Git"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Automated Attedance System",
+            "description" : "Face recognition–based attendance system with CLI and GUI for capturing face data, extracting HOG features, training a neural network, and performing real‑time recognition to track course-specific attendance, manage students and schedules, and export detailed attendance records.",
+            "urlPhoto": "https://personal-website-s3-bucket.s3.us-east-2.amazonaws.com/assistance_index.jpeg",
+            "gitHubUrl": "https://github.com/Ichurri/automated-assistance-taking-system",
+            "technologies": [
+                "Python",
+                "TensorFlow",
+                "OpenCV",
+                "NumPy",
+                "scikit-learn",
+                "dlib",
+                "h5py",
+                "matplotlib",
+                "Pillow",
+                "Tkinter"
+            ]
+        }
+    ]
+}
