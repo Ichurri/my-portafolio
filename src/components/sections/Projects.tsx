@@ -70,7 +70,7 @@ const Projects = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 max-w-7xl mx-auto"
         >
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <motion.div
               key={project.id}
               variants={projectCardVariants}
