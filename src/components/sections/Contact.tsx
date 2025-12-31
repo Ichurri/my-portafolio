@@ -14,6 +14,7 @@ import { Input } from '../ui/input';
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [focusedField, setFocusedField] = useState<string | null>(null);
 
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -108,11 +109,20 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel className="text-dark-500">Name</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Your name" 
-                          className="bg-dark-300/50 border-dark-400/30 focus:ring-dark-500"
-                          {...field} 
-                        />
+                        <motion.div
+                          animate={{
+                            scale: focusedField === 'name' ? 1.02 : 1,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Input 
+                            placeholder="Your name" 
+                            className="bg-dark-300/50 border-dark-400/30 focus:ring-dark-500 focus:border-dark-500 transition-all"
+                            {...field}
+                            onFocus={() => setFocusedField('name')}
+                            onBlur={() => setFocusedField(null)}
+                          />
+                        </motion.div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -126,12 +136,21 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel className="text-dark-500">Email</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="your.email@example.com" 
-                          type="email" 
-                          className="bg-dark-300/50 border-dark-400/30 focus:ring-dark-500"
-                          {...field} 
-                        />
+                        <motion.div
+                          animate={{
+                            scale: focusedField === 'email' ? 1.02 : 1,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <Input 
+                            placeholder="your.email@example.com" 
+                            type="email" 
+                            className="bg-dark-300/50 border-dark-400/30 focus:ring-dark-500 focus:border-dark-500 transition-all"
+                            {...field}
+                            onFocus={() => setFocusedField('email')}
+                            onBlur={() => setFocusedField(null)}
+                          />
+                        </motion.div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -145,25 +164,52 @@ const Contact = () => {
                     <FormItem>
                       <FormLabel className="text-dark-500">Message</FormLabel>
                       <FormControl>
-                        <TextArea 
-                          placeholder="Write your message here..." 
-                          rows={5}
-                          {...field} 
-                        />
+                        <motion.div
+                          animate={{
+                            scale: focusedField === 'message' ? 1.02 : 1,
+                          }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          <TextArea 
+                            placeholder="Write your message here..." 
+                            rows={5}
+                            {...field}
+                            onFocus={() => setFocusedField('message')}
+                            onBlur={() => setFocusedField(null)}
+                          />
+                        </motion.div>
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
 
-                <Button 
-                  type="submit" 
-                  className="w-full bg-dark-500 hover:bg-dark-400 text-dark-100 text-sm sm:text-base py-2 sm:py-3 h-auto"
-                  disabled={isSubmitting}
+                <motion.div
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
                 >
-                  {isSubmitting ? 'Sending...' : 'Send Message'}
-                  <Send className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
-                </Button>
+                  <Button 
+                    type="submit" 
+                    className="w-full bg-dark-500 hover:bg-dark-400 text-dark-100 text-sm sm:text-base py-2 sm:py-3 h-auto"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <motion.div
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="w-4 h-4 border-2 border-dark-100 border-t-transparent rounded-full mr-2"
+                        />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        Send Message
+                        <Send className="ml-2 w-3 h-3 sm:w-4 sm:h-4" />
+                      </>
+                    )}
+                  </Button>
+                </motion.div>
               </form>
             </Form>
           </motion.div>

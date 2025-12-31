@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
+import { motion } from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
@@ -42,13 +43,56 @@ export interface ButtonProps
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : "button"
+    const [ripples, setRipples] = React.useState<Array<{ x: number; y: number; id: number }>>([]);
+    const [rippleId, setRippleId] = React.useState(0);
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      const button = e.currentTarget;
+      const rect = button.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      setRipples((prev) => [...prev, { x, y, id: rippleId }]);
+      setRippleId((prev) => prev + 1);
+
+      setTimeout(() => {
+        setRipples((prev) => prev.slice(1));
+      }, 600);
+
+      if (props.onClick) {
+        props.onClick(e);
+      }
+    };
+
+    const Comp = asChild ? Slot : "button";
+    
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
-        ref={ref}
-        {...props}
-      />
+      <motion.div
+        whileHover={{ scale: 1.02 }}
+        whileTap={{ scale: 0.98 }}
+        style={{ display: 'inline-block' }}
+      >
+        <Comp
+          className={cn(buttonVariants({ variant, size, className }), 'relative overflow-hidden')}
+          ref={ref}
+          {...props}
+          onClick={handleClick}
+        >
+          {props.children}
+          {ripples.map((ripple) => (
+            <span
+              key={ripple.id}
+              className="absolute bg-white/30 rounded-full animate-ripple"
+              style={{
+                left: ripple.x,
+                top: ripple.y,
+                width: 0,
+                height: 0,
+              }}
+            />
+          ))}
+        </Comp>
+      </motion.div>
     )
   }
 )

@@ -8,11 +8,23 @@ import { skillCategories } from '@/lib/skills';
 const Skills = () => {
   const [activeCategory, setActiveCategory] = useState(0);
   const [direction, setDirection] = useState(0); // -1 para izquierda, 1 para derecha
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+  const [mousePosition, setMousePosition] = useState({ x: 0.5, y: 0.5 });
 
   const handleCategoryChange = (index: number) => {
     // Determinar la dirección de la animación
     setDirection(index > activeCategory ? 1 : -1);
     setActiveCategory(index);
+  };
+  
+  const handleSkillMouseMove = (e: React.MouseEvent<HTMLDivElement>, skillTitle: string) => {
+    if (hoveredSkill !== skillTitle) return;
+    
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width;
+    const y = (e.clientY - rect.top) / rect.height;
+    
+    setMousePosition({ x, y });
   };
 
   const skillCardVariants = {
@@ -136,12 +148,33 @@ const Skills = () => {
                   initial="hidden"
                   animate="visible"
                   whileHover="hover"
+                  onHoverStart={() => setHoveredSkill(skill.title)}
+                  onHoverEnd={() => {
+                    setHoveredSkill(null);
+                    setMousePosition({ x: 0.5, y: 0.5 });
+                  }}
+                  onMouseMove={(e) => handleSkillMouseMove(e, skill.title)}
                   transition={{
                     delay: index * 0.05,
                     duration: 0.3
                   }}
-                  className="bg-dark-300 rounded-lg p-3 sm:p-4 md:p-6 text-center cursor-pointer border border-dark-400/20 hover:border-dark-500/50 transition-all duration-300"
+                  className="bg-dark-300 rounded-lg p-3 sm:p-4 md:p-6 text-center cursor-pointer border border-dark-400/20 hover:border-dark-500/50 transition-all duration-300 relative overflow-hidden"
+                  style={{
+                    transformStyle: 'preserve-3d',
+                    transform: hoveredSkill === skill.title
+                      ? `perspective(1000px) rotateX(${(mousePosition.y - 0.5) * -15}deg) rotateY(${(mousePosition.x - 0.5) * 15}deg)`
+                      : 'perspective(1000px) rotateX(0deg) rotateY(0deg)',
+                  }}
                 >
+                  {/* Shine effect */}
+                  <div 
+                    className="absolute inset-0 pointer-events-none opacity-0 hover:opacity-100 transition-opacity duration-300"
+                    style={{
+                      background: hoveredSkill === skill.title
+                        ? `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(255,255,255,0.15) 0%, transparent 50%)`
+                        : 'none'
+                    }}
+                  />
                   <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-2 sm:mb-3 md:mb-4 relative">
                     <Image
                       src={skill.logo}

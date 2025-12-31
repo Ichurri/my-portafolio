@@ -73,6 +73,32 @@
     }
   }
   
+  @keyframes gradient {
+    0% {
+      background-position: 0% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  
+  .animate-gradient {
+    animation: gradient 3s linear infinite;
+  }
+  
+  @keyframes ripple {
+    to {
+      width: 500px;
+      height: 500px;
+      opacity: 0;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  .animate-ripple {
+    animation: ripple 0.6s ease-out;
+  }
+  
   /* Responsive text size adjustments */
   html {
     font-size: 14px;
