@@ -12,6 +12,22 @@ import { getLoadingStrategy, imageConfig } from '@/lib/imageUtils';
 const About = () => {
   const [imageLoaded, setImageLoaded] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+  
+  // Parallax scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const aboutSection = document.getElementById('about');
+      if (aboutSection) {
+        const rect = aboutSection.getBoundingClientRect();
+        const scrollProgress = -rect.top / (rect.height + window.innerHeight);
+        setScrollY(scrollProgress * 50); // Parallax factor
+      }
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
   
   // Use intersection observer to detect when section is visible
   useEffect(() => {
@@ -63,6 +79,9 @@ const About = () => {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
             className={`relative flex justify-center items-center ${styles.fadeInUp} px-4 sm:px-2 md:px-0`}
+            style={{
+              transform: `translateY(${scrollY}px)`,
+            }}
           >
             <div className={`${styles.profileImageWrapper} max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] w-full`}>
               {!imageLoaded && <div className={styles.imageLoading} />}

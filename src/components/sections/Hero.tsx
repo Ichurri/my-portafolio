@@ -17,6 +17,11 @@ const Hero = () => {
     }
   };
   
+  // Typewriter effect state
+  const [displayedText, setDisplayedText] = useState('');
+  const [titleIndex, setTitleIndex] = useState(0);
+  const fullTitle = personalInfo.title;
+  
   // State to store particle positions
   const [particles, setParticles] = useState<{ left: string; top: string; duration: number; delay: number }[]>([]);
   
@@ -32,6 +37,17 @@ const Hero = () => {
     
     setParticles(newParticles);
   }, []); // Empty dependency array means this runs once on mount
+  
+  // Typewriter effect
+  useEffect(() => {
+    if (titleIndex < fullTitle.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText(fullTitle.slice(0, titleIndex + 1));
+        setTitleIndex(titleIndex + 1);
+      }, 100);
+      return () => clearTimeout(timeout);
+    }
+  }, [titleIndex, fullTitle]);
 
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -81,21 +97,29 @@ const Hero = () => {
             </motion.p>
             
             <motion.h1
-              className="text-3xl sm:text-5xl lg:text-7xl font-bold text-dark-500 mb-4 sm:mb-6 px-2 sm:px-0"
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold mb-4 sm:mb-6 px-2 sm:px-0 bg-gradient-to-r from-dark-500 via-dark-400 to-dark-500 bg-clip-text text-transparent bg-[length:200%_auto] animate-gradient"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
+              style={{
+                animation: 'gradient 3s linear infinite'
+              }}
             >
               {personalInfo.name}
             </motion.h1>
             
             <motion.h2
-              className="text-xl sm:text-3xl lg:text-4xl font-semibold text-dark-400 mb-6 sm:mb-8 px-2 sm:px-0"
+              className="text-xl sm:text-3xl lg:text-4xl font-semibold text-dark-400 mb-6 sm:mb-8 px-2 sm:px-0 min-h-[2.5rem] sm:min-h-[3rem] lg:min-h-[3.5rem]"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
             >
-              {personalInfo.title}
+              {displayedText}
+              <motion.span
+                className="inline-block w-0.5 h-6 sm:h-8 lg:h-10 bg-dark-400 ml-1"
+                animate={{ opacity: [1, 0] }}
+                transition={{ duration: 0.8, repeat: Infinity }}
+              />
             </motion.h2>
           </motion.div>
 
